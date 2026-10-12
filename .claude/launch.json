@@ -4,15 +4,31 @@
     {
       "name": "6502js",
       "runtimeExecutable": "sh",
-      "runtimeArgs": ["-c", "exec python3 -m http.server ${PORT:-2601}"],
+      "runtimeArgs": [
+        "-c",
+        "exec python3 -m http.server ${PORT:-2601}"
+      ],
       "port": 2601,
       "autoPort": false
     },
     {
       "name": "z80js-dev",
       "runtimeExecutable": "sh",
-      "runtimeArgs": ["-c", "cd /Volumes/Documents/Dev/z80js && exec python3 -m http.server 1976"],
+      "runtimeArgs": [
+        "-c",
+        "cd /Volumes/Documents/Dev/z80js && exec python3 -m http.server 1976"
+      ],
       "port": 1976,
+      "autoPort": false
+    },
+    {
+      "name": "sm83js",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "cd /Volumes/Documents/Dev/SM83js && exec python3 -m http.server 2602"
+      ],
+      "port": 2602,
       "autoPort": false
     }
   ]
