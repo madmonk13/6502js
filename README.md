@@ -38,6 +38,11 @@ The last cart played resumes on launch.
 
 - **Controls:** left-handed, controller (8-way joystick, 4-way joystick or paddle), d-pad size, vibrate on fire
   (Android only; Safari has no vibration API), zone hints.
+- **Control zones** (as in z80js): faint outlines show the joystick and fire areas, with
+  adjustable opacity. The zone overlap slider sets how far the outlines reach over the
+  picture: in portrait they sit in the band below it, starting that share of the picture's
+  height up from its bottom edge; in landscape they stop short of the middle by that share
+  of its width. The touch areas themselves are still the two halves of the screen.
 - **Resume where I left off** (on by default): the game in progress is saved when the
   page is hidden or closed, and every few seconds while playing, so a refresh or relaunch
   picks up exactly where you were. Restart / Power cycle starts over.
