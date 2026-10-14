@@ -39,7 +39,7 @@ const FILES = [
 const BUNDLED = new Set(["roms/demo.asm","roms/demo.bin"]);
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES)).then(() => self.skipWaiting()));
+  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES.map((f) => new Request(f, { cache: 'reload' })))).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', (event) => {
@@ -56,7 +56,9 @@ self.addEventListener('fetch', (event) => {
   event.respondWith((async () => {
     const cache = await caches.open(CACHE);
     try {
-      const res = await fetch(req);
+      // Ask the server every time (a 304 when unchanged): the browser's own HTTP cache could otherwise
+      // hand back an old module next to a new one after an update.
+      const res = await (req.mode === 'navigate' ? fetch(req.url, { cache: 'no-cache', credentials: 'same-origin' }) : fetch(req, { cache: 'no-cache' }));
       if (res.ok) cache.put(req, res.clone());
       return res;
     } catch {
