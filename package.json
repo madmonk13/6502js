@@ -5,9 +5,10 @@
   "description": "Touch-first Atari 2600 emulator for phones, with gesture controls",
   "type": "module",
   "scripts": {
-    "start": "python3 -m http.server 2601",
+    "start": "node tools/build-sw.mjs && python3 -m http.server 2601",
     "build:demo": "dasm roms/demo.asm -f3 -I/opt/homebrew/Cellar/dasm/2.20.17/machines/atari2600 -oroms/demo.bin -lroms/demo.lst",
     "frame": "node tools/render-frame.mjs",
-    "icons": "node tools/make-icons.mjs"
+    "icons": "node tools/make-icons.mjs",
+    "sw": "node tools/build-sw.mjs"
   }
 }
