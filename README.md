@@ -20,6 +20,11 @@ with no dependencies and no build step.
   zones. Most games need Reset to start.
 - Keyboards (desktop or Bluetooth) and gamepads also work: arrows/WASD to move, Space to
   fire, Return (or 2) = Reset, Tab (or 1) = Select.
+- **Hints follow how you play.** On a phone or tablet the control zones show; on a computer, or as
+  soon as you press a key or a gamepad button, they're replaced by a card listing the keys (or
+  gamepad buttons), shown as a game starts and while it's paused, and the same list is in
+  Settings › Controls. Touching the screen brings the zones back. **Hints for** in Settings fixes
+  it to Touch, Keys or Pad instead of Auto. A gamepad's Start button also resumes a paused game.
 - **Pause** (the ⏸ button in the top bar, or P on a keyboard): stops the game and its sound; tap
   the screen or the button again to resume. The game is saved for resume when paused, and
   after a reload the game comes back paused, so play starts when you're ready.

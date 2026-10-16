@@ -4,7 +4,7 @@
 // the current app) and falls back to the cache when offline. ROM sets under
 // roms/ aren't cached here: games kept on the device live in IndexedDB.
 
-const CACHE = '6502js-f4983b57777e';
+const CACHE = '6502js-9eb8a5d4b60e';
 const FILES = [
   "./",
   "favicon-32.png",
@@ -27,6 +27,7 @@ const FILES = [
   "src/emu/riot.js",
   "src/emu/state.js",
   "src/emu/tia.js",
+  "src/input-mode.js",
   "src/input.js",
   "src/library.js",
   "src/main.js",

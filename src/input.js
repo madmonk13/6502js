@@ -28,6 +28,7 @@ export class Input {
     this.uiReset = false;
     this.uiSelect = false;
     this.onActivity = null;   // called on keyboard or gamepad input
+    this.padStartHeld = false; // the gamepad's Start resumed the game: not a press for it until let go
     // Extra player-0 sources (e.g. touch controls): objects with dir() → SWCHA
     // direction bits (0x10 up, 0x20 down, 0x40 left, 0x80 right), fire() → bool
     // and optionally paddleRate() → turn rate in [-1, 1].
@@ -79,7 +80,8 @@ export class Input {
       if (ax > 0.5 || b(15)) d |= 0x80;
       const fire = b(0) || b(1) || b(2) || b(3);
       if (slot === 0) { p0 |= d; fire0 ||= fire; rate += Math.abs(ax) > 0.15 ? ax : 0; } else { p1 |= d >> 4; fire1 ||= fire; }
-      if (b(9)) reset = true;
+      if (b(9) && !this.padStartHeld) reset = true;    // Game Reset (not the press that just resumed from a pause)
+      if (!b(9)) this.padStartHeld = false;
       if (b(8)) select = true;
       if (this.onActivity && (d || fire || b(8) || b(9) || Math.abs(ax) > 0.5)) this.onActivity();
       slot++;
@@ -106,4 +108,20 @@ export class Input {
       tia.fire0 = false; // a paddle button isn't the joystick fire line
     }
   }
+}
+
+// The controls, as [keys, what they do] rows for the keyboard or gamepad hints
+// (mode 'keys' or 'pad'), for a joystick or (paddle) a paddle game.
+export function controlLegend(paddle, mode) {
+  const keys = mode === 'keys';
+  const rows = [
+    paddle ? [keys ? '← →  or  A D' : 'Left stick  ·  D-pad', 'Paddle']
+      : [keys ? 'Arrows  or  W A S D' : 'D-pad  ·  left stick', 'Joystick'],
+    [keys ? 'Space, Z  or  X' : 'A, B, X  or  Y', 'Fire'],
+    [keys ? 'Tab  or  1' : 'Select / Back', 'Game Select'],
+    [keys ? 'Return  or  2' : 'Start', 'Game Reset'],
+  ];
+  if (!paddle) rows.push([keys ? 'I J K L  ·  U' : 'A second gamepad', 'Player 2']);
+  if (keys) rows.push(['P', 'Pause']);
+  return rows;
 }
