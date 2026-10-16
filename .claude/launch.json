@@ -40,6 +40,26 @@
       ],
       "port": 2603,
       "autoPort": false
+    },
+    {
+      "name": "p8js",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "cd /Volumes/Documents/Dev/P8js && exec python3 -m http.server 2608"
+      ],
+      "port": 2608,
+      "autoPort": false
+    },
+    {
+      "name": "ledjs",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "cd /Volumes/Documents/Dev/LEDjs && exec python3 -m http.server 2609"
+      ],
+      "port": 2609,
+      "autoPort": false
     }
   ]
 }
