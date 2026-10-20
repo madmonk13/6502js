@@ -3,6 +3,8 @@
 A touch-first Atari 2600 emulator for phones. Plain HTML, CSS and JavaScript modules,
 with no dependencies and no build step.
 
+**Play it:** [madmonk13.github.io/6502js](https://madmonk13.github.io/6502js/)
+
 ## Controls
 
 - **Left half: joystick.** A d-pad appears wherever your thumb lands. Direction comes
