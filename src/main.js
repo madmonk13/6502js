@@ -8,6 +8,7 @@ import { library, renderLibrary, DEMO_ID } from './library.js';
 import { TouchControls } from './touch.js';
 import { encode, decode } from './emu/state.js';
 import { registerServiceWorker } from './sw-update.js';
+import { setupInstall } from './install.js';
 
 const $ = (id) => document.getElementById(id);
 const FRAME_TIME = 1 / 60;
@@ -613,3 +614,4 @@ window.audio = audio;
 // version shows an update screen while it installs. Browsers only allow it on
 // https or localhost.
 registerServiceWorker('6502js');
+setupInstall($('installBtn'), (msg) => toast(msg, { info: true }));

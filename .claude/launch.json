@@ -60,6 +60,46 @@
       ],
       "port": 2609,
       "autoPort": false
+    },
+    {
+      "name": "rkade4",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "cd /Volumes/Documents/Dev/RKADE4 && exec python3 -m http.server 2610"
+      ],
+      "port": 2610,
+      "autoPort": false
+    },
+    {
+      "name": "sc01js",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "cd /Volumes/Documents/Dev/SC01js && exec python3 -m http.server 2611"
+      ],
+      "port": 2611,
+      "autoPort": false
+    },
+    {
+      "name": "5124js",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "cd /Volumes/Documents/Dev/5124js && exec python3 -m http.server 2612"
+      ],
+      "port": 2612,
+      "autoPort": false
+    },
+    {
+      "name": "68kjs",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "cd /Volumes/Documents/Dev/68Kjs && exec python3 -m http.server 2613"
+      ],
+      "port": 2613,
+      "autoPort": false
     }
   ]
 }

@@ -63,6 +63,12 @@ starts and plays without a network, from the browser or installed to the home sc
 Screen" on iOS, "Install app" in Chrome). Games you've added stay available offline. When online it
 always loads the current version from the network first, and the cache follows.
 
+**Install** (in Settings, next to the title) installs it as an app where the browser allows that
+from a page (Chrome, Edge and other Chromium browsers, on computers and Android). Safari can't be
+asked by a page, so there the button says how: Share › Add to Home Screen on iPhone and iPad, or
+File › Add to Dock on a Mac. It's hidden in browsers that can't install apps (Firefox) and once
+the app is installed.
+
 Service workers only run on **https** or **localhost**: serving the folder over plain http to a
 phone on the LAN works, but without offline support. `sw.js` is generated: `npm start` rebuilds it,
 or run `npm run sw` after changing files, and commit it with them.
@@ -105,3 +111,17 @@ screen, where it runs fullscreen.
 - Not yet supported: FE (Activision 8K), DPC (Pitfall II), and other rarer mappers.
 - TIA simplifications: HMOVE applies instantly, and late-HMOVE tricks aren't modeled.
 - PAL games use the NTSC palette.
+
+## More emulators
+
+6502js is one of a family of touch-first emulators, all plain JavaScript web apps with no
+dependencies that install and work offline:
+
+| App | Plays |
+|---|---|
+| [z80js](https://github.com/madmonk13/z80js) | Arcade games: 212 of them, on Z80, 6809, 68000 and other boards |
+| [2A03js](https://github.com/madmonk13/2A03js) | NES / Famicom |
+| [SM83js](https://github.com/madmonk13/SM83js) | Game Boy and Game Boy Color |
+| [P8js](https://github.com/madmonk13/P8js) | PICO-8 carts |
+| [5124js](https://github.com/madmonk13/5124js) | Sega Master System and Game Gear |
+| [68Kjs](https://github.com/madmonk13/68Kjs) | Sega Mega Drive / Genesis |
